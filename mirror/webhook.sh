@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pip install requests
+
 # Erstelle den Python-Code
 cat <<EOF > webhook.py
 import requests
