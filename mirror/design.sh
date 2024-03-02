@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# Funktion zum Ändern des Terminal-Designs
-change_terminal_design() {
+# Funktion zum Ändern des Terminal-Prompts
+change_prompt() {
     # Frag nach der Farbe
-    read -p "Möchtest du das Terminal in Dunkelgrün oder Rot anzeigen lassen? (G/D/R): " color_choice
+    read -p "Möchtest du das Terminal-Prompt in Dunkelgrün ändern? (J/N): " color_choice
 
-    # Überprüfe die Eingabe und ändere das Terminal-Design entsprechend
-    if [[ $color_choice == "D" || $color_choice == "d" ]]; then
+    # Überprüfe die Eingabe und ändere den Prompt entsprechend
+    if [[ $color_choice == "J" || $color_choice == "j" ]]; then
         PS1='\[\033[0;32m\]~#\[\033[0m\] '
-    elif [[ $color_choice == "R" || $color_choice == "r" ]]; then
-        PS1='\[\033[0;31m\]~#\[\033[0m\] '
+    elif [[ $color_choice == "N" || $color_choice == "n" ]]; then
+        PS1='\[\033[0m\]~$ '
     else
-        echo "Ungültige Eingabe. Das Terminal bleibt unverändert."
+        echo "Ungültige Eingabe. Das Terminal-Prompt bleibt unverändert."
         return 1
     fi
 
@@ -20,7 +20,4 @@ change_terminal_design() {
 }
 
 # Rufe die Funktion auf
-change_terminal_design
-
-# Starte die interaktive Shell
-bas
+change_prompt
