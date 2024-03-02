@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo "import requests
+# Erstelle den Python-Code
+cat <<EOF > webhook.py
+import requests
 import time
 import threading
 
@@ -57,6 +59,7 @@ class DiscordMessageSender:
 if __name__ == "__main__":
     sender = DiscordMessageSender()
     sender.get_input()
-    sender.run()" > webhook.py 
+    sender.run()
+EOF
 
-echo "Discord Webhook Bomb succesfull installed"
+echo "Python-Skript wurde erfolgreich erstellt."
