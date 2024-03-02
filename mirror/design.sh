@@ -15,8 +15,9 @@ change_prompt() {
         return 1
     fi
 
-    # Setze den neuen Prompt
-    export PS1
+    # Setze den neuen Prompt im aktuellen Terminal
+    echo "export PS1=\"$PS1\"" >> ~/.bashrc
+    source ~/.bashrc
 }
 
 # Rufe die Funktion auf
