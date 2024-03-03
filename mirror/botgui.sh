@@ -8,14 +8,17 @@ import tkinter as tk
 from tkinter import messagebox
 
 class DiscordBot(commands.Bot):
-    def __init__(self, command_prefix, *args, **kwargs):
-        super().__init__(command_prefix=command_prefix, *args, **kwargs)
+    def __init__(self, command_prefix, intents, *args, **kwargs):
+        super().__init__(command_prefix=command_prefix, intents=intents, *args, **kwargs)
 
     async def on_ready(self):
         print(f'Bot is ready. Logged in as {self.user}')
 
 def start_bot(token, prefix, commands):
-    bot = DiscordBot(command_prefix=prefix)
+    intents = discord.Intents.default()
+    intents.messages = True  # Beispielsweise
+
+    bot = DiscordBot(command_prefix=prefix, intents=intents)
     
     for command in commands:
         @bot.command(name=command['name'])
@@ -71,9 +74,7 @@ def create_bot():
 
 if __name__ == "__main__":
     create_bot()
-END
 )
-
 # Write to Python file
 echo "$python_script" > bot_gui.py
 
